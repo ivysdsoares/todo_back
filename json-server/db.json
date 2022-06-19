@@ -1,0 +1,100 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "adminview",
+      "name": "ivys",
+      "password": "soares"
+    },
+    {
+      "id": 2,
+      "email": "adminview",
+      "name": "ivys",
+      "password": "soares"
+    },
+    {
+      "email": "ivysdsoares@gmail.com",
+      "password": "",
+      "name": "Ivys Soares",
+      "id": 3
+    },
+    {
+      "email": "ivysdsoares@gmail.com",
+      "password": "",
+      "name": "Ivys Soares",
+      "id": 4
+    },
+    {
+      "name": "teste",
+      "email": "teste@123.com",
+      "password": "teste",
+      "id": 5
+    },
+    {
+      "name": "teste",
+      "email": "teste@123.com",
+      "password": "teste",
+      "id": 6
+    },
+    {
+      "name": "Ivys Soares",
+      "password": "",
+      "email": "ivysdsoares@gmail.com",
+      "id": 7
+    },
+    {
+      "name": "Ivys Soares",
+      "password": "",
+      "email": "ivysdsoares@gmail.com",
+      "id": 8
+    },
+    {
+      "name": "Ivys Soares",
+      "password": "",
+      "email": "ivysdsoares@gmail.com",
+      "id": 9
+    },
+    {
+      "name": "Ivys Soares",
+      "password": "not_accessible",
+      "email": "teste@gmail.com",
+      "id": 10
+    },
+    {
+      "name": "Ivys Soares",
+      "password": "not_accessible",
+      "email": "teste1@gmail.com",
+      "id": 11
+    },
+    {
+      "name": "Ivys Soares",
+      "password": "not_accessible",
+      "email": "teste1/@gmail.com",
+      "id": 12
+    },
+    {
+      "name": "Ivys Soares",
+      "password": "22222222",
+      "email": "testeer@gmail.com",
+      "id": 13
+    },
+    {
+      "name": "Ivys Soares",
+      "password": "22222222",
+      "email": "testeer@gmail.com",
+      "id": 14
+    },
+    {
+      "name": "Ivys Soares",
+      "password": "22222222",
+      "email": "testeer@gmail.com",
+      "id": 15
+    },
+    {
+      "name": "Ivys Soares",
+      "password": "22222222",
+      "email": "testeer@gmail.com",
+      "id": 16
+    }
+  ]
+}
