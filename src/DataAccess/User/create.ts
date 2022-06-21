@@ -5,7 +5,7 @@ import {
 } from "../../Entities/User/types";
 import Connection from "../connection";
 
-function CreateUser({
+function Create({
   email,
   password,
   name
@@ -16,8 +16,8 @@ function CreateUser({
         resolve(res.data);
       })
       .catch((err: AxiosError) => {
-        if (typeof err.code === "number") {
-          reject({ message: err.message, code: err.code });
+        if (err.response) {
+          reject({ message: err.message, code: err.response.status });
         } else {
           reject({ message: err.message, code: 500 });
         }
@@ -25,4 +25,4 @@ function CreateUser({
   });
 }
 
-export default CreateUser;
+export default Create;

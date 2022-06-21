@@ -7,7 +7,7 @@ UserRouter.post("/user/login", (req: Request, res: Response) => {
   Controller.User.Login({ req, res });
 });
 UserRouter.post("/user/create", (req: Request, res: Response) => {
-  Controller.User.CreateUser({ req, res });
+  Controller.User.Create({ req, res });
 });
 UserRouter.post("/user/gmail", (req: Request, res: Response) => {
   Controller.User.Gmail({ req, res });

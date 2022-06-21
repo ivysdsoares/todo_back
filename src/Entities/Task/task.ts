@@ -1,4 +1,5 @@
 import { ITaskEntity, ITaskEntityReturn } from "./types";
+import ValidateBody from "./Validation/validatebody";
 
 function TaskEntity({
   id,
@@ -13,8 +14,7 @@ function TaskEntity({
   const Tuser_id: number = user_id || 0;
   const Ttitle: string = title || "";
   const Tdescription: string = description || "";
-  const Tstatus: "ONGOING" | "COMPLETE" | "FAILED" | "EXPIRED" =
-    status || "ONGOING";
+  const Tstatus: string = status || "";
   const Texpiration_date: string = expiration_date || "";
   const Tcolor: number = color || 0;
 
@@ -26,6 +26,15 @@ function TaskEntity({
     status: Tstatus,
     expiration_date: Texpiration_date,
     color: Tcolor,
-    
+    isValidBody: ValidateBody({
+      title: Ttitle,
+      description: Tdescription,
+      status: Tstatus,
+      expiration_date: Texpiration_date,
+      color: Tcolor,
+      user_id: Tuser_id
+    })
   };
 }
+
+export default TaskEntity;

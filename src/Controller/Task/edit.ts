@@ -2,8 +2,13 @@ import UseCases from "../../UseCases";
 import DataAccess from "../../DataAccess";
 import { Props } from "../types";
 
-function Login({ req, res }: Props) {
-  UseCases.User.Login(req.body, DataAccess.User.Login)
+function EditTask({ req, res }: Props) {
+  UseCases.Task.EditTask(
+    req.body,
+    DataAccess.Task.EditTask,
+    DataAccess.User.Valid,
+    DataAccess.Task.ValidTask
+  )
     .then((result) => {
       res.status(200).send(result);
     })
@@ -12,4 +17,4 @@ function Login({ req, res }: Props) {
     });
 }
 
-export default Login;
+export default EditTask;

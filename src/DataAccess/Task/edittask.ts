@@ -1,10 +1,28 @@
 import { AxiosError } from "axios";
-import { IExistsRequirements, IExistsResult } from "../../Entities/User/types";
+import {
+  IEditTaskRequirements,
+  IEditTaskResult
+} from "../../Entities/Task/types";
 import Connection from "../connection";
 
-function Exists({ email }: IExistsRequirements): Promise<Array<IExistsResult>> {
+function EditTask({
+  id,
+  title,
+  description,
+  status,
+  color,
+  user_id,
+  expiration_date
+}: IEditTaskRequirements): Promise<IEditTaskResult> {
   return new Promise((resolve, reject) => {
-    Connection.get(`users?email=${email}`)
+    Connection.put(`task/${id}`, {
+      title,
+      description,
+      status,
+      color,
+      user_id,
+      expiration_date
+    })
       .then((res) => {
         resolve(res.data);
       })
@@ -18,4 +36,4 @@ function Exists({ email }: IExistsRequirements): Promise<Array<IExistsResult>> {
   });
 }
 
-export default Exists;
+export default EditTask;

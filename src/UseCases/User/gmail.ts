@@ -8,7 +8,7 @@ import {
   IExistsResult
 } from "../../Entities/User/types";
 import UserEntity from "../../Entities/User/user";
-import CreateUser from "./createuser";
+import CreateUser from "./create";
 
 function Gmail(
   params: IGmailRequirements,

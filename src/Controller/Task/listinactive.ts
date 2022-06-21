@@ -2,8 +2,11 @@ import UseCases from "../../UseCases";
 import DataAccess from "../../DataAccess";
 import { Props } from "../types";
 
-function Login({ req, res }: Props) {
-  UseCases.User.Login(req.body, DataAccess.User.Login)
+function ListInactive({ req, res }: Props) {
+  UseCases.Task.ListInactive(
+    { id: req.params.id },
+    DataAccess.Task.ListInactive
+  )
     .then((result) => {
       res.status(200).send(result);
     })
@@ -12,4 +15,4 @@ function Login({ req, res }: Props) {
     });
 }
 
-export default Login;
+export default ListInactive;

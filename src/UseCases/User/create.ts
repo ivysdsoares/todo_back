@@ -1,4 +1,3 @@
-
 import {
   ICreateUserRequirements,
   ICreateUserRequest,
@@ -6,7 +5,7 @@ import {
 } from "../../Entities/User/types";
 import UserEntity from "../../Entities/User/user";
 
-function CreateUser(
+function Create(
   params: ICreateUserRequirements,
   execute: ICreateUserRequest
 ): Promise<ICreateUserResult> {
@@ -23,7 +22,7 @@ function CreateUser(
       valid = user.isValidName;
     }
     if (valid === true) {
-      execute(params)
+      execute({ password: user.password, email: user.email, name: user.name })
         .then((res) => {
           resolve({ id: res.id });
         })
@@ -36,4 +35,4 @@ function CreateUser(
   });
 }
 
-export default CreateUser;
+export default Create;

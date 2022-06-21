@@ -1,23 +1,23 @@
 import { AxiosError } from "axios";
 import {
-  ILoginRequest,
-  ILoginRequirements,
-  ILoginResult
+  IValidUserResult,
+  IValidUserRequirements
 } from "../../Entities/User/types";
 import Connection from "../connection";
 
-function Login({
-  email,
-  password
-}: ILoginRequirements): Promise<Array<ILoginResult>> {
+function ValidUser({ id }: IValidUserRequirements): Promise<IValidUserResult> {
   return new Promise((resolve, reject) => {
-    Connection.get(`users?password=${password}&email=${email}`)
+    Connection.get(`users/${id}`)
       .then((res) => {
         resolve(res.data);
       })
       .catch((err: AxiosError) => {
         if (err.response) {
-          reject({ message: err.message, code: err.response.status });
+          if (err.response.status === 404) {
+            reject({ message: "User does not exist", code: 404 });
+          } else {
+            reject({ message: err.message, code: err.code });
+          }
         } else {
           reject({ message: err.message, code: 500 });
         }
@@ -25,4 +25,4 @@ function Login({
   });
 }
 
-export default Login;
+export default ValidUser;

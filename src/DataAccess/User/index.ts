@@ -1,5 +1,6 @@
 import Login from "./login";
-import CreateUser from "./createuser";
+import Create from "./create";
 import Exists from "./exists";
+import Valid from "./isvalid";
 
-export default { Login, CreateUser, Exists };
+export default { Login, Create, Exists, Valid };
