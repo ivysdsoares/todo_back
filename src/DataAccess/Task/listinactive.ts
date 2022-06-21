@@ -14,7 +14,8 @@ function ListInactive({
       .then((res) => {
         const active: Array<IListInactiveTaskResult> = res.data.filter(
           (e: IListInactiveTaskResult) =>
-            // e.status !== "ONGOING" &&
+            (e.status !== "ONGOING" &&
+              e.expiration_date > new Date().toISOString()) ||
             e.expiration_date < new Date().toISOString()
         );
 
