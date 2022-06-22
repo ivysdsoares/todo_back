@@ -1,5 +1,8 @@
-function isValidEmail(email: string | null | undefined): string | true {
+function isValidEmail(email: string): string | true {
   if (email === null || email === undefined) return "Email is required";
+  if (typeof email !== "string") {
+    return "Invalid type for email";
+  }
   if (!email.includes("@") || !email.includes(".com"))
     return "Email is incomplete";
   if (email.includes('"') || email.includes("'"))

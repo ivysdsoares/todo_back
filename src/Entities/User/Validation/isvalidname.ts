@@ -1,5 +1,6 @@
-function isValidName(name: string | null | undefined): string | true {
+function isValidName(name: string ): string | true {
   if (name === null || name === undefined) return "Name is required";
+  if(typeof name !== 'string')return "Invalid type for name"
   if (
     name.includes("&") ||
     name.includes("?") ||

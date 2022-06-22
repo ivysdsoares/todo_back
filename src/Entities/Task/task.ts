@@ -1,5 +1,5 @@
 import { ITaskEntity, ITaskEntityReturn } from "./types";
-import ValidateBody from "./Validation/validatebody";
+import Validation from "./Validation";
 
 function TaskEntity({
   id,
@@ -26,14 +26,16 @@ function TaskEntity({
     status: Tstatus,
     expiration_date: Texpiration_date,
     color: Tcolor,
-    isValidBody: ValidateBody({
+    isValidBody: Validation.isValidBody({
       title: Ttitle,
       description: Tdescription,
       status: Tstatus,
       expiration_date: Texpiration_date,
       color: Tcolor,
       user_id: Tuser_id
-    })
+    }),
+    isValidId: Validation.isValidId({ id: Tid }),
+    isValidUserId: Validation.isValidUserId({ user_id: Tuser_id })
   };
 }
 

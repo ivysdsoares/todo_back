@@ -6,13 +6,11 @@ import {
 } from "../../Entities/Task/types";
 import Connection from "../connection";
 
-function Report({
-  id
-}: IReportTaskRequirements): Promise<IReportTaskResult> {
+function Report({ id }: IReportTaskRequirements): Promise<IReportTaskResult> {
   return new Promise((resolve, reject) => {
-    Connection.get(`task/?user-id=${id}`)
+    Connection.get(`task/?user_id=${id}`)
       .then((res) => {
-        let stats: IReportTaskResult = {
+        const stats: IReportTaskResult = {
           ongoing: 0,
           complete: 0,
           failed: 0,
@@ -20,11 +18,14 @@ function Report({
         };
         res.data.forEach((item: ITaskEntityReturn) => {
           if (item.status === "ONGOING") {
-            if (item.expiration_date < new Date().toISOString()) {
-              stats.expired += 1;
-            } else {
+            if (item.expiration_date > new Date().toISOString()) {
               stats.ongoing += 1;
+            } else {
+              stats.expired += 1;
             }
+          }
+          if (item.status === "EXPIRED") {
+            stats.expired += 1;
           }
           if (item.status === "COMPLETE") {
             stats.complete += 1;

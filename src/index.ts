@@ -26,6 +26,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+console.log(Number.isNaN(parseInt("4.2", 10)));
 app.use(Routes.TaskRouter);
 app.use(Routes.UserRouter);
 

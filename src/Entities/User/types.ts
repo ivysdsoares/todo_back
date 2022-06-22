@@ -6,15 +6,18 @@ export interface IUserEntity {
 }
 
 export interface IUserEntityReturn {
-  id: number ;
-  email: string ;
-  password: string ;
-  name: string ;
+  id: number;
+  email: string;
+  password: string;
+  name: string;
   isValidName: string | true;
   isValidPassWord: string | true;
   isValidEmail: string | true;
+  isValidLogin: string | true;
+  isValidGmail: string | true;
+  isValidCreate: string | true;
 }
- export interface ILoginRequirements {
+export interface ILoginRequirements {
   email: string;
   password: string;
 }
@@ -81,4 +84,3 @@ export type IGmailRequest = ({
   email,
   name
 }: IGmailRequirements) => Promise<Array<IGmailResult>>;
-

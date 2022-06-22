@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { IUserEntity, IUserEntityReturn } from "./types";
 import Validation from "./Validation";
+import isValidGmail from "./Validation/isvalidgmail";
 
 function UserEntity({
   id,
@@ -20,7 +21,17 @@ function UserEntity({
     name: Tname,
     isValidEmail: Validation.isValidEmail(Temail),
     isValidName: Validation.isValidName(Tname),
-    isValidPassWord: Validation.isValidPassword(Tpassword)
+    isValidPassWord: Validation.isValidPassword(Tpassword),
+    isValidGmail: Validation.isValidGmail({ email: Temail, name: Tname }),
+    isValidLogin: Validation.isValidLogin({
+      email: Temail,
+      password: Tpassword
+    }),
+    isValidCreate: Validation.isValidCreate({
+      email: Temail,
+      password: Tpassword,
+      name: Tname
+    })
   };
 }
 

@@ -1,3 +1,4 @@
+import TaskEntity from "../../Entities/Task/task";
 import {
   IReportTaskRequirements,
   IReportTaskResult,

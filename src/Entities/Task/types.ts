@@ -18,6 +18,8 @@ export interface ITaskEntityReturn {
   expiration_date: string;
   color: number;
   isValidBody: true | string;
+  isValidId: true | string;
+  isValidUserId: true | string;
 }
 
 // CREATE A TASK
@@ -86,7 +88,7 @@ export interface IDetailTaskResult {
 
 export type IDetailTaskRequest = ({
   id,
-  user_id,
+  user_id
 }: IDetailTaskRequirements) => Promise<IDetailTaskResult>;
 
 // VALIDATE A TASK

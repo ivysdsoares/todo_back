@@ -17,17 +17,11 @@ function Gmail(
 ): Promise<IGmailResult> {
   return new Promise<IGmailResult>((resolveFinal, rejectFinal) => {
     const user = UserEntity({ ...params });
-    let valid: string | true = true;
-    if (!(user.isValidEmail === true)) {
-      valid = user.isValidEmail;
-    }
-    if (!(user.isValidName === true)) {
-      valid = user.isValidPassWord;
-    }
+  
 
     const UserExistsPromise = new Promise<"NOT CREATED" | IExistsResult>(
       (resolve, reject) => {
-        if (valid === true) {
+        if (user.isValidGmail === true) {
           exists({ email: params.email })
             .then((res) => {
               if (res.length === 0) {
@@ -40,7 +34,7 @@ function Gmail(
               reject(err);
             });
         } else {
-          reject({ code: 422, message: valid });
+          reject({ code: 422, message: user.isValidGmail });
         }
       }
     );

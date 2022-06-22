@@ -1,6 +1,6 @@
 import moment from "moment";
 
-function ValidateBody({
+function isValidBody({
   expiration_date,
   title,
   description,
@@ -8,12 +8,12 @@ function ValidateBody({
   status,
   user_id
 }: {
-  expiration_date: string;
-  title: string;
-  description: string;
-  color: number;
-  status: string;
-  user_id: number;
+  expiration_date: string ;
+  title: string ;
+  description: string ;
+  color: number ;
+  status: string ;
+  user_id: number ;
 }): string | true {
   if (!moment(expiration_date).isValid()) {
     return "Invalid date";
@@ -34,4 +34,4 @@ function ValidateBody({
   return true;
 }
 
-export default ValidateBody;
+export default isValidBody;

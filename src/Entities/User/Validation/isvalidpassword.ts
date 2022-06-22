@@ -1,5 +1,6 @@
-function isValidPassword(password: string | null | undefined): string | true {
+function isValidPassword(password: string): string | true {
   if (password == null || password === undefined) return "Password is required";
+    if (typeof password !== "string") return "Invalid type for password";
   if (
     password.includes('"') ||
     password.includes("'") ||

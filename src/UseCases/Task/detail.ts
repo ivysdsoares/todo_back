@@ -17,23 +17,32 @@ function Detail(
   validateTask: IValidTaskRequest
 ): Promise<IDetailTaskResult> {
   return new Promise<IDetailTaskResult>((resolveFinal, rejectFinal) => {
+    const task = TaskEntity(params);
     const isValidUser = new Promise<IValidUserResult>((resolve, reject) => {
-      validateUser({ id: params.user_id })
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((err) => {
-          reject(err);
-        });
+      if (task.isValidUserId === true) {
+        validateUser({ id: params.user_id })
+          .then((res) => {
+            resolve(res);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      } else {
+        reject({ code: 422, message: task.isValidUserId });
+      }
     });
     const isValidTask = new Promise<IValidTaskResult>((resolve, reject) => {
-      validateTask({ id: params.id })
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((err) => {
-          reject(err);
-        });
+      if (task.isValidId === true) {
+        validateTask({ id: params.id })
+          .then((res) => {
+            resolve(res);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      } else {
+        reject({ code: 422, message: task.isValidId });
+      }
     });
 
     Promise.all([isValidTask, isValidUser])

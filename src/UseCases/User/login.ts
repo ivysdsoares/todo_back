@@ -11,14 +11,8 @@ function Login(
 ): Promise<ILoginResult> {
   return new Promise<ILoginResult>((resolve, reject) => {
     const user = UserEntity({ ...params });
-    let valid: string | true = true;
-    if (!(user.isValidEmail === true)) {
-      valid = user.isValidEmail;
-    }
-    if (!(user.isValidPassWord === true)) {
-      valid = user.isValidPassWord;
-    }
-    if (valid === true) {
+
+    if (user.isValidLogin === true) {
       execute(params)
         .then((res) => {
           if (res.length === 0) {
@@ -35,7 +29,7 @@ function Login(
           reject(err);
         });
     } else {
-      reject({ code: 422, message: valid });
+      reject({ code: 422, message: user.isValidLogin });
     }
   });
 }
