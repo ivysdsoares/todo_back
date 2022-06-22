@@ -2,11 +2,12 @@ import UseCases from "../../UseCases";
 import DataAccess from "../../DataAccess";
 import { Props } from "../types";
 
-function Create({ req, res }: Props) {
-  UseCases.Task.Create(
+function Detail({ req, res }: Props) {
+  UseCases.Task.Detail(
     req.body,
-    DataAccess.Task.Create,
-    DataAccess.User.Valid
+    DataAccess.Task.Detail,
+    DataAccess.User.Valid,
+    DataAccess.Task.Valid
   )
     .then((result) => {
       res.status(200).send(result);
@@ -16,4 +17,4 @@ function Create({ req, res }: Props) {
     });
 }
 
-export default Create;
+export default Detail;

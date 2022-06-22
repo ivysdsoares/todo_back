@@ -8,7 +8,7 @@ import {
 } from "../../Entities/Task/types";
 import { IValidUserRequest, IValidUserResult } from "../../Entities/User/types";
 
-function EditTask(
+function Edit(
   params: IEditTaskRequirements,
   execute: IEditTaskRequest,
   validateUser: IValidUserRequest,
@@ -68,4 +68,4 @@ function EditTask(
   });
 }
 
-export default EditTask;
+export default Edit;

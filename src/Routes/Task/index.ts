@@ -4,11 +4,14 @@ import Controller from "../../Controller";
 const TaskRouter = express.Router();
 
 TaskRouter.post("/tasks/create", (req: Request, res: Response): void => {
-  Controller.Task.CreateTask({ req, res });
+  Controller.Task.Create({ req, res });
 });
 TaskRouter.put("/tasks/edit", (req: Request, res: Response): void => {
-  Controller.Task.EditTask({ req, res });
+  Controller.Task.Edit({ req, res });
 });
+TaskRouter.post("/tasks", (req: Request, res: Response): void =>
+  Controller.Task.Detail({ req, res })
+);
 TaskRouter.get("/tasks/active/:id", (req: Request, res: Response) => {
   Controller.Task.ListActive({ req, res });
 });

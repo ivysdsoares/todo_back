@@ -15,12 +15,11 @@ function EditTask({
   expiration_date
 }: IEditTaskRequirements): Promise<IEditTaskResult> {
   return new Promise((resolve, reject) => {
-    Connection.put(`task/${id}`, {
+    Connection.patch(`task/${id}`, {
       title,
       description,
       status,
       color,
-      user_id,
       expiration_date
     })
       .then((res) => {

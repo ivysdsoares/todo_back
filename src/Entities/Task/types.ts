@@ -68,6 +68,26 @@ export type IEditTaskRequest = ({
   expiration_date,
   color
 }: IEditTaskRequirements) => Promise<IEditTaskResult>;
+// DETAIL A TASK
+export interface IDetailTaskRequirements {
+  id: number;
+  user_id: number;
+}
+
+export interface IDetailTaskResult {
+  id: number;
+  user_id: number;
+  title: string;
+  description: string;
+  status: "ONGOING" | "COMPLETE" | "FAILED" | "EXPIRED";
+  expiration_date: string;
+  color: number;
+}
+
+export type IDetailTaskRequest = ({
+  id,
+  user_id,
+}: IDetailTaskRequirements) => Promise<IDetailTaskResult>;
 
 // VALIDATE A TASK
 

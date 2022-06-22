@@ -1,7 +1,8 @@
-import CreateTask from "./create";
-import EditTask from "./edit";
+import Create from "./create";
+import Edit from "./edit";
 import ListActive from "./listactive";
 import ListInactive from "./listinactive";
 import Report from "./report";
+import Detail from "./detail";
 
-export default { CreateTask, EditTask, ListActive, ListInactive, Report };
+export default { Create, Detail, Edit, ListActive, ListInactive, Report };

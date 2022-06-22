@@ -1,6 +1,5 @@
 import { AxiosError } from "axios";
 import {
-  IListInactiveTaskRequest,
   IListInactiveTaskRequirements,
   IListInactiveTaskResult
 } from "../../Entities/Task/types";

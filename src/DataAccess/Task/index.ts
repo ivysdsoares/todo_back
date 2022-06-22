@@ -1,14 +1,16 @@
-import CreateTask from "./createtask";
-import EditTask from "./edittask";
-import ValidTask from "./isvalid";
+import Create from "./createtask";
+import Edit from "./edittask";
+import Valid from "./isvalid";
 import ListActive from "./listactive";
 import ListInactive from "./listinactive";
 import Report from "./report";
+import Detail from "./detail";
 
 export default {
-  CreateTask,
-  EditTask,
-  ValidTask,
+  Detail,
+  Create,
+  Edit,
+  Valid,
   ListActive,
   ListInactive,
   Report

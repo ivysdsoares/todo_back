@@ -2,12 +2,12 @@ import UseCases from "../../UseCases";
 import DataAccess from "../../DataAccess";
 import { Props } from "../types";
 
-function EditTask({ req, res }: Props) {
-  UseCases.Task.EditTask(
+function Edit({ req, res }: Props) {
+  UseCases.Task.Edit(
     req.body,
-    DataAccess.Task.EditTask,
+    DataAccess.Task.Edit,
     DataAccess.User.Valid,
-    DataAccess.Task.ValidTask
+    DataAccess.Task.Valid
   )
     .then((result) => {
       res.status(200).send(result);
@@ -17,4 +17,4 @@ function EditTask({ req, res }: Props) {
     });
 }
 
-export default EditTask;
+export default Edit;

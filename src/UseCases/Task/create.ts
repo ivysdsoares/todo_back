@@ -6,7 +6,7 @@ import {
 } from "../../Entities/Task/types";
 import { IValidUserRequest } from "../../Entities/User/types";
 
-function CreateTask(
+function Create(
   params: ICreateTaskRequirements,
   execute: ICreateTaskRequest,
   validate: IValidUserRequest
@@ -50,4 +50,4 @@ function CreateTask(
   });
 }
 
-export default CreateTask;
+export default Create;
